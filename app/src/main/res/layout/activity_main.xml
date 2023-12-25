@@ -26,7 +26,12 @@
         android:textColorLink="#9C1010"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         app:layout_constraintStart_toStartOf="parent" />
+=======
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt" />
+>>>>>>> 45e6250 (second commit)
 
     <Button
         android:id="@+id/delivery"
@@ -38,4 +43,29 @@
         android:text="Delivery"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+<<<<<<< HEAD
+=======
+
+    <TextView
+        android:id="@+id/txt"
+        android:layout_width="147dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginBottom="204dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/meet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="22dp"
+        android:text="Start"
+        app:layout_constraintEnd_toEndOf="@+id/txt"
+        app:layout_constraintTop_toBottomOf="@+id/txt" />
+>>>>>>> 45e6250 (second commit)
 </androidx.constraintlayout.widget.ConstraintLayout>
