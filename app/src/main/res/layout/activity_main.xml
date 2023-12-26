@@ -26,12 +26,9 @@
         android:textColorLink="#9C1010"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintStart_toStartOf="parent" />
-=======
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt" />
->>>>>>> 45e6250 (second commit)
+
 
     <Button
         android:id="@+id/delivery"
@@ -43,8 +40,6 @@
         android:text="Delivery"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-<<<<<<< HEAD
-=======
 
     <TextView
         android:id="@+id/txt"
@@ -67,5 +62,4 @@
         android:text="Start"
         app:layout_constraintEnd_toEndOf="@+id/txt"
         app:layout_constraintTop_toBottomOf="@+id/txt" />
->>>>>>> 45e6250 (second commit)
 </androidx.constraintlayout.widget.ConstraintLayout>

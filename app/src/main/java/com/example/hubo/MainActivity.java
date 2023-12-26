@@ -1,12 +1,12 @@
 package com.example.hubo;
 
 import androidx.appcompat.app.AppCompatActivity;
-<<<<<<< HEAD
+
 
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-=======
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -20,33 +20,21 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
->>>>>>> 45e6250 (second commit)
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-<<<<<<< HEAD
-=======
 import android.widget.TextView;
 import android.widget.Toast;
->>>>>>> 45e6250 (second commit)
 import android.widget.VideoView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-<<<<<<< HEAD
-public class MainActivity extends AppCompatActivity {
-
-    Button meet;
-
-    VideoView video;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState){
-=======
 import java.util.ArrayList;
 
-public  class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity {
+
 
     Button meet;
 
@@ -64,23 +52,20 @@ public  class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
->>>>>>> 45e6250 (second commit)
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         meet = findViewById(R.id.meet);
         video = findViewById(R.id.video);
-<<<<<<< HEAD
-=======
+
         tv = findViewById(R.id.txt);
         start = findViewById(R.id.start);
->>>>>>> 45e6250 (second commit)
+
 
         String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.speech;
         playVideo(videoPath);
 
-<<<<<<< HEAD
-=======
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO)
                 != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
@@ -105,91 +90,82 @@ public  class MainActivity extends AppCompatActivity {
         });
 
 
->>>>>>> 45e6250 (second commit)
         meet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.meet;
                 playVideo(videoPath);
-<<<<<<< HEAD
                 video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mediaPlayer) {
-                        showPersonListBottomSheet();
-=======
-                flag = true;
-                video.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                    @Override
-                    public void onCompletion(MediaPlayer mediaPlayer) {
+
                         if (flag) {
                             showPersonListBottomSheet();
                             flag = false;
                         }
->>>>>>> 45e6250 (second commit)
                     }
                 });
             }
         });
     }
-<<<<<<< HEAD
-=======
-        private void initializeSpeechRecognizer() {
-            speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
-            speechRecognizer.setRecognitionListener(new RecognitionListener() {
-                @Override
-                public void onReadyForSpeech(Bundle params) {
-                    // Called when the speech recognition service is ready to listen.
-                    Toast.makeText(MainActivity.this, "Started Listening", Toast.LENGTH_SHORT).show();
-                }
 
-                @Override
-                public void onBeginningOfSpeech() {
-                    // Called when the user starts speaking.
-                    Toast.makeText(MainActivity.this, "Started speech", Toast.LENGTH_SHORT).show();
-                }
+    private void initializeSpeechRecognizer() {
+        speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
+        speechRecognizer.setRecognitionListener(new RecognitionListener() {
+            @Override
+            public void onReadyForSpeech(Bundle params) {
+                // Called when the speech recognition service is ready to listen.
+                Toast.makeText(MainActivity.this, "Started Listening", Toast.LENGTH_SHORT).show();
+            }
 
-                @Override
-                public void onRmsChanged(float rmsdB) {
-                    // Called when the RMS changes.
-                }
+            @Override
+            public void onBeginningOfSpeech() {
+                // Called when the user starts speaking.
+                Toast.makeText(MainActivity.this, "Started speech", Toast.LENGTH_SHORT).show();
+            }
 
-                @Override
-                public void onBufferReceived(byte[] buffer) {
-                    // Called when partial recognition results are available.
-                }
+            @Override
+            public void onRmsChanged(float rmsdB) {
+                // Called when the RMS changes.
+            }
 
-                @Override
-                public void onEndOfSpeech() {
-                    // Called when the user stops speaking.
-                }
+            @Override
+            public void onBufferReceived(byte[] buffer) {
+                // Called when partial recognition results are available.
+            }
 
-                @Override
-                public void onError(int error) {
-                    Log.e("SpeechRecognition", "Error: " + error);
-                    // or use Toast to display an error message
-                    Toast.makeText(MainActivity.this, "Speech recognition error: " + error, Toast.LENGTH_SHORT).show();
-                }
+            @Override
+            public void onEndOfSpeech() {
+                // Called when the user stops speaking.
+            }
 
-                @Override
-                public void onResults(Bundle results) {
-                    // Called when recognition results are ready.
-                    ArrayList<String> matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
-                    if (matches != null && matches.size() > 0) {
-                        String result = matches.get(0);
-                        tv.setText(result);
-                    }
-                }
+            @Override
+            public void onError(int error) {
+                Log.e("SpeechRecognition", "Error: " + error);
+                // or use Toast to display an error message
+                Toast.makeText(MainActivity.this, "Speech recognition error: " + error, Toast.LENGTH_SHORT).show();
+            }
 
-                @Override
-                public void onPartialResults(Bundle partialResults) {
-                    // Called when partial recognition results are available.
+            @Override
+            public void onResults(Bundle results) {
+                // Called when recognition results are ready.
+                ArrayList<String> matches = results.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
+                if (matches != null && matches.size() > 0) {
+                    String result = matches.get(0);
+                    tv.setText(result);
                 }
+            }
 
-                @Override
-                public void onEvent(int eventType, Bundle params) {
-                    // Reserved for future use.
-                }
-            });
+            @Override
+            public void onPartialResults(Bundle partialResults) {
+                // Called when partial recognition results are available.
+            }
+
+            @Override
+            public void onEvent(int eventType, Bundle params) {
+                // Reserved for future use.
+            }
+        });
     }
 
     private void startSpeechRecognition() {
@@ -230,7 +206,6 @@ public  class MainActivity extends AppCompatActivity {
     }
 
 
->>>>>>> 45e6250 (second commit)
     private void showPersonListBottomSheet() {
         // Sample list of persons
         String[] persons = {"Person A", "Person B", "Person C", "Person D", "Person E", "Person F", "Person G", "Person H"};
@@ -256,21 +231,14 @@ public  class MainActivity extends AppCompatActivity {
         bottomSheetDialog.show();
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 45e6250 (second commit)
-    public void findPerson(String name)
-    {
-        if(name.equals("Person A"))
-        {
+    public void findPerson(String name) {
+        if (name.equals("Person A")) {
             String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.speech;
             playVideo(videoPath);
         }
     }
 
-    public void playVideo(String path)
-    {
+    public void playVideo(String path) {
         video.setVideoURI(Uri.parse(path));
         video.start();
     }
